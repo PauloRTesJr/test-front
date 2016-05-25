@@ -1,0 +1,28 @@
+
+<md-dialog class="content-dialog" aria-label="Graphics" ng-cloak>
+    <md-dialog-content>
+        <md-toolbar class="md-theme-light">
+            <h2 class="md-toolbar-tools">
+                <span>{{user_selected.name.first}} {{user_selected.name.last}}</span>
+            </h2>
+        </md-toolbar>
+        <md-content>
+            <md-list>
+                <md-list-item class="md-3-line" ng-repeat="item in user_selected.interactions">
+                    <img ng-src="{{item.brand_content.image}}?{{$index}}" class="face avatar-list">
+                    <div class="md-list-item-text">
+                        <h3>{{item.brand_content.name}} </h3>
+                        <h4>{{item.type}}</h4>
+                        <p>{{item.text}}</p>
+                    </div>
+                    <md-divider md-inset ng-if="!$last"></md-divider>
+                </md-list-item>
+            </md-list>
+        </md-content>
+    </md-dialog-content>
+    <div class="md-actions">
+        <md-button ng-click="closeDialog()" class="md-primary">
+            OK
+        </md-button>
+    </div>
+</md-dialog>

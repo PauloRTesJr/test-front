@@ -1,0 +1,32 @@
+<md-content>
+    <!-- First grid -->
+    <md-grid-list
+        md-cols="6" md-cols-sm="2" md-cols-md="4" md-cols-gt-md="6"
+        md-row-height-gt-md="1:1" md-row-height="4:3"
+        md-gutter="8px" md-gutter-gt-sm="4px" >
+            <md-grid-tile class="brand-tile" ng-repeat="brand in brands | orderBy:'-contInt'" ng-click="showDialog($event, brand)">
+                <img src="{{brand.image}}?{{$index}}"   />
+                <md-grid-tile-footer><h3>{{brand.name}} - READ MORE</h3></md-grid-tile-footer>
+            </md-grid-tile>
+    </md-grid-list>
+
+    <!-- User cards -->
+    <div class="users-cards">
+        <div class='md-padding cards-background' layout="row" layout-wrap>
+            <md-card class="user-card" ng-repeat="user in users">
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">{{user.name.title}} {{user.name.first}} {{user.name.last}}</span>
+                        <span class="md-subhead">{{user.email}}</span>
+                    </md-card-title-text>
+                    <md-card-title-media>
+                        <div class="md-media-sm card-media"><img ng-src="{{user.picture.medium}}?{{$index}}" class="face"></div>
+                    </md-card-title-media>
+                </md-card-title>
+                <md-card-actions layout="row" layout-align="end center">
+                    <md-button ng-click="showUser($event, user)">Read more</md-button>
+                </md-card-actions>
+            </md-card>
+        </div>
+    </div>
+</md-content>
